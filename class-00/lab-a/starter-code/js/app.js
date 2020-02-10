@@ -13,8 +13,8 @@ const labels = [];
 const pics = [leftImage, centerImage, rightImage];
 const list = document.getElementById('productlist');
 let totalClicks = 0;
-const views = [];
-const votes = [];
+let views = [];
+let votes = [];
 
 function Product(name) {
   this.name = name;
@@ -128,7 +128,7 @@ if(localStorage.busmall){
   allProducts = JSON.parse(localStorage.busmall);
 } else {
   console.log('There is no local storage data; initialize app by creating instances');
-  for(const i = 0; i < names.length; i++) {
+  for(let i = 0; i < names.length; i++) {
     new Product(names[i]);
   }
 }
