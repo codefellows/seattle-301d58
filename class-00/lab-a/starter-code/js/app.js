@@ -30,14 +30,14 @@ function makeRandom() {
 
 function displayPics(){
   while(viewed.length < 6){
-    const rando = makeRandom();
+    let rando = makeRandom();
     while(!viewed.includes(rando)){
       viewed.push(rando);
     }
     console.log(rando);
   }
   // TODO: In a sentence or two, explain why the previous line of code threw an error when we changed the constiable declaration from `const to `const`.
-  // PUT YOUR RESPONSE IN THIS COMMENT
+  // PUT YOUR RESPONSE IN THIS COMMENT - A CONSTANT VARIABLE CAN NOT BE CHANGED AND IS ALSO BLOCK SCOPED. rando should be initialized with let instead of const.  
   console.log(viewed);
 
   for (let i = 0; i < 3; i++){
@@ -62,7 +62,7 @@ function handleClick(event) {
   for(let i = 0; i < names.length; i++){
     if(event.target.id === allProducts[i].name) {
       allProducts[i].votes += 1;
-      console.log(event.target.id + ' has ' + allProducts[i].votes + ' votes in ' + allProducts[i].views + ' views');
+      console.log(`${event.target.id} has ${allProducts[i].votes}  votes in ${allProducts[i].views} views`);
     }
   }
   localStorage.busmall = JSON.stringify(allProducts);
@@ -73,10 +73,11 @@ function handleClick(event) {
 function showList() {
   for(let i = 0; i < allProducts.length; i++) {
     const liEl = document.createElement('li');
-    liEl.textContent = allProducts[i].name + ' has ' + allProducts[i].votes + ' votes in ' + allProducts[i].views + ' views';
+    liEl.textContent = `${allProducts[i].name}  has  ${allProducts[i].votes}  votes in  ${allProducts[i].views}  views`;
     list.appendChild(liEl);
   }
 }
+// `${str0}${personExp}${str1}${ageStr}`;
 
 function makeChartData(){
   allProducts.forEach(function(product){
@@ -128,7 +129,7 @@ if(localStorage.busmall){
   allProducts = JSON.parse(localStorage.busmall);
 } else {
   console.log('There is no local storage data; initialize app by creating instances');
-  for(const i = 0; i < names.length; i++) {
+  for(let i = 0; i < names.length; i++) {  //AGAIN, WE CAN NOT USE CONST HERE. WE NEED TO SAY let i=0; ...
     new Product(names[i]);
   }
 }
