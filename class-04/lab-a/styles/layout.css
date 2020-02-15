@@ -17,6 +17,7 @@
     width: 100%;
   }
   nav {
+    background-color: #95BF0B;
     /* order: 1; */
     align-items: stretch;
     /* width: 100%; */
@@ -26,14 +27,6 @@
     border-style: solid;
     border-width: 1px;
   }
-  section:first-child {
-    /* order: 2; */
-    /* float: left; */
-    /* width: 20.8333%; */
-    height: 150px;
-    line-height: 150px;
-    width: 480px;
-  }
   section {
     /* order: 3; */
     /* width: 39.5833%; */
@@ -42,6 +35,21 @@
     border-style: solid;
     border-width: 1px;
     /* float: right; */
+  }
+  section:first-child {
+    background-color: #B3146B;
+    /* order: 2; */
+    /* float: left; */
+    /* width: 20.8333%; */
+    height: 150px;
+    line-height: 150px;
+    width: 480px;
+  }
+  section:nth-child(2){
+    background-color: #188C5A;
+  }
+  section:nth-child(3){
+    background-color: #0C1FC9;
   }
   div {
     /* order: 4; */
@@ -63,7 +71,20 @@
     border-style: solid;
     border-width: 1px;
   }
+  article:nth-child(1){
+    background-color: #C9760C;
+  }
+  article:nth-child(2){
+    background-color: #95BF0B;
+  }
+  article:nth-child(3){
+    background-color: #188C5A;
+  }
+  article:nth-child(4){
+    background-color: #0C1FC9;
+  }
   footer {
+    background-color: #B3146B;
     height: 150px;
     line-height: 150px;
     width: 480px;
@@ -96,9 +117,10 @@
   nav {
     width: 100%;
     height: 100%;
-    line-height: 100%;
+    line-height: 100px;
     border-style: solid;
     border-width: 1px;
+    background-color: #F0BF51;
   }
   /* main {
     height: 768px;
@@ -116,12 +138,18 @@
     width: 200px;
     height: 600px;
     line-height: 600px;
-  }               
+    background-color: #4E9FE6;
+  } 
+  section:nth-child(2){
+    background-color: #51F097;
+  }   
+  section:nth-child(3){
+    background-color: #BAD955;
+  }             
   div {
     width: 760px;
     height: 250px;
     display: flex;
-    /* display: inline-block; */
   }
   article {
     border-style: solid;
@@ -130,9 +158,21 @@
     line-height: 250px;
     width: 25%;
     margin: auto;
-    /* display: inline-block; */
+  }
+  article:first-child {
+    background-color: #BAD955;
+  }
+  article:nth-child(2){
+    background-color: #F0BF51;
+  }
+  article:nth-child(3){
+    background-color: #BAD955;
+  }
+  article:nth-child(4){
+    background-color: #4E9FE6;
   }
   footer{
+    background-color: #B3533D;
     display: inline-block;
     border-style: solid;
     border-width: 1px;
@@ -143,7 +183,6 @@
   }
 }
 
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-
-
-}
+/* @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    background-color: grey;
+} */
