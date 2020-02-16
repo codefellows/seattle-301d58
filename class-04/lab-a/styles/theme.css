@@ -82,6 +82,7 @@
     background-color: #B3533D;
     border-style: solid;
     border-width: 1px;
+    display: inline-block;
   }
   }
   @media (min-width: 768px) and (min-height: 1024px) {
