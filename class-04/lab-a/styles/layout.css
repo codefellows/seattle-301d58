@@ -95,19 +95,25 @@
     height: 100%;
     line-height: 100px;
   }
+  main {
+    height: 450px;
+  }
   section {
     float: left;
-    width: 380px;
+    /* width: 380px; */
+    width: 39.5833%;
     height: 200px;
     line-height: 200px;
   }
   section:first-child {
-    width: 200px;
+    /* width: 200px; */
+    width: 20.8333%;
     height: 600px;
     line-height: 600px;
   } 
   div {
-    width: 760px;
+    /* width: 760px; */
+    width: 79.166%;
     height: 250px;
     display: flex;
   }
@@ -118,6 +124,7 @@
     margin: auto;
   }
   footer{
+    float: right;
     width: 760px;
     height: 150px;
     line-height: 150px;
@@ -144,6 +151,9 @@
     width: 100%;
     height: 100%;
     line-height: 100px;
+  }
+  main {
+    height: 450px;
   }
   section {
     float: left;
