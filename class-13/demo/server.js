@@ -5,6 +5,7 @@ const pg = require('pg');
 const express = require('express')
 const app = express();
 require('ejs');
+const methodOverride = require('method-override');
 
 // middleware
 
@@ -16,6 +17,9 @@ app.use(express.urlencoded({extended:true}));
 // tells the servers to use ejs templating - aka look in the views folders for .ejs files to render
 app.set('view engine', 'ejs');
 
+// allows me to changes my 'post' to a 'put' in my html
+app.use(methodOverride('_method'));
+
 const client = new pg.Client(process.env.DATABASE_URL);
 client.on('error', err => console.error(err));
 
@@ -26,6 +30,8 @@ app.get('/', getAllTasks);
 app.get('/add', displayAddATask);
 app.post('/add', addTask);
 app.get('/tasks/:task_id', getOneTask);
+app.put('/update/:task_id', updateOneTask);
+app.get('/collectAllTasks', collectAllTasks);
 app.get('*', (request, response) => {
   response.status(404).send('this page does not exist')
 })
@@ -81,6 +87,32 @@ function getOneTask(request, response){
     .then(results => {
       let task = results.rows[0];
       response.render('./pages/detail-view.ejs', {task: task});
+    })
+}
+
+function updateOneTask(request, response){
+
+  let {title, description, contact, status} = request.body;
+  let id = request.params.task_id;
+
+  let sql = 'UPDATE tasks SET title=$1, description=$2, contact=$3, status=$4 WHERE id=$5;';
+
+  let safeValues=[title, description, contact, status, id];
+
+  client.query(sql, safeValues)
+    .then(() => {
+      response.redirect('/');
+    })
+}
+
+function collectAllTasks(request, response){
+  // query the DB
+  // send to the front end
+
+  let sql = 'SELECT * FROM tasks;';
+  client.query(sql)
+    .then(results => {
+      response.send(results.rows);
     })
 }
 
